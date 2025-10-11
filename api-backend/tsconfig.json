@@ -15,5 +15,5 @@
     "strictPropertyInitialization": false,
     "moduleResolution": "node"
   },
-  "include": ["src"]
+  "include": ["src", "prisma/seed.ts"]
 }
