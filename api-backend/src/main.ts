@@ -4,6 +4,7 @@ import { AppModule } from "./app.module";
 import { ValidationPipe, VersioningType } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import helmet from "helmet";
+import cookieParser from "cookie-parser";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { Logger } from "nestjs-pino";
 import { PrismaExceptionFilter } from "./common/filters/prisma-exception.filter";
@@ -15,6 +16,8 @@ async function bootstrap() {
   const config = app.get(ConfigService);
 
   app.use(helmet());
+  app.use(cookieParser());
+
   app.enableCors({
     origin: config.get("CORS_ORIGIN") || true,
     credentials: true,

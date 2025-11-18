@@ -13,6 +13,7 @@ import { MetricsModule } from "./metrics/metrics.module";
 import { PaymentsModule } from "./payments/payments.module";
 import { BillingModule } from "./billing/billing.module";
 import { WebhooksModule } from "./webhooks/webhooks.module";
+import { AuthModule } from "./auth/auth.module";
 
 const isDev = process.env.NODE_ENV === "development";
 const isTest = process.env.NODE_ENV === "test";
@@ -47,6 +48,7 @@ const THROTTLE_TTL_MS = Number(process.env.THROTTLE_TTL_MS ?? 60_000);
 
     PrismaModule,
     HealthModule,
+    AuthModule,
     CustomersModule,
     MetricsModule,
     PaymentsModule,
