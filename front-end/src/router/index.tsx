@@ -49,209 +49,229 @@ import Validation from "../pages/Validation";
 import Chart from "../pages/Chart";
 import Slider from "../pages/Slider";
 import ImageZoom from "../pages/ImageZoom";
+import { ProtectedRoutes } from "./protected-routes";
+import { GuestRoute } from "./guest-routes";
 
 function Router() {
   const routes = [
     {
       path: "/",
-      element: <Menu />,
+      element: <ProtectedRoutes />,
       children: [
         {
           path: "/",
-          element: <DashboardOverview1 />,
-        },
-        {
-          path: "/dashboard-overview-2",
-          element: <DashboardOverview2 />,
-        },
-        {
-          path: "/calendar",
-          element: <Calendar />,
-        },
-        {
-          path: "/chat",
-          element: <Chat />,
-        },
-        {
-          path: "/inbox",
-          element: <Inbox />,
-        },
-        {
-          path: "/email-detail",
-          element: <EmailDetail />,
-        },
-        {
-          path: "/compose",
-          element: <Compose />,
-        },
-        {
-          path: "/products",
-          element: <Products />,
-        },
-        {
-          path: "/product-detail",
-          element: <ProductDetail />,
-        },
-        {
-          path: "/orders",
-          element: <Orders />,
-        },
-        {
-          path: "/order-detail",
-          element: <OrderDetail />,
-        },
-        {
-          path: "/file-manager",
-          element: <FileManager />,
-        },
-        {
-          path: "/profile",
-          element: <Profile />,
-        },
-        {
-          path: "/pricing",
-          element: <Pricing />,
-        },
-        {
-          path: "/invoice",
-          element: <Invoice />,
-        },
-        {
-          path: "/faq",
-          element: <Faq />,
-        },
-        {
-          path: "/timeline",
-          element: <Timeline />,
-        },
-        {
-          path: "/crud-data-list",
-          element: <CrudDataList />,
-        },
-        {
-          path: "/crud-form",
-          element: <CrudForm />,
-        },
-        {
-          path: "/wizard-layout-1",
-          element: <WizardLayout1 />,
-        },
-        {
-          path: "/wizard-layout-2",
-          element: <WizardLayout2 />,
-        },
-        {
-          path: "/wizard-layout-3",
-          element: <WizardLayout3 />,
-        },
-        {
-          path: "regular-table",
-          element: <RegularTable />,
-        },
-        {
-          path: "tabulator",
-          element: <Tabulator />,
-        },
-        {
-          path: "modal",
-          element: <Modal />,
-        },
-        {
-          path: "slideover",
-          element: <Slideover />,
-        },
-        {
-          path: "notification",
-          element: <Notification />,
-        },
-        {
-          path: "tab",
-          element: <Tab />,
-        },
-        {
-          path: "accordion",
-          element: <Accordion />,
-        },
-        {
-          path: "button",
-          element: <Button />,
-        },
-        {
-          path: "alert",
-          element: <Alert />,
-        },
-        {
-          path: "progress-bar",
-          element: <ProgressBar />,
-        },
-        {
-          path: "tooltip",
-          element: <Tooltip />,
-        },
-        {
-          path: "dropdown",
-          element: <Dropdown />,
-        },
-        {
-          path: "typography",
-          element: <Typography />,
-        },
-        {
-          path: "icon",
-          element: <Icon />,
-        },
-        {
-          path: "loading-icon",
-          element: <LoadingIcon />,
-        },
-        {
-          path: "regular-form",
-          element: <RegularForm />,
-        },
-        {
-          path: "datepicker",
-          element: <Datepicker />,
-        },
-        {
-          path: "tom-select",
-          element: <TomSelect />,
-        },
-        {
-          path: "file-upload",
-          element: <FileUpload />,
-        },
-        {
-          path: "wysiwyg-editor",
-          element: <WysiwygEditor />,
-        },
-        {
-          path: "validation",
-          element: <Validation />,
-        },
-        {
-          path: "chart",
-          element: <Chart />,
-        },
-        {
-          path: "slider",
-          element: <Slider />,
-        },
-        {
-          path: "image-zoom",
-          element: <ImageZoom />,
+          element: <Menu />,
+          children: [
+            {
+              path: "/",
+              element: <DashboardOverview1 />,
+            },
+            {
+              path: "/dashboard-overview-2",
+              element: <DashboardOverview2 />,
+            },
+            {
+              path: "/calendar",
+              element: <Calendar />,
+            },
+            {
+              path: "/chat",
+              element: <Chat />,
+            },
+            {
+              path: "/inbox",
+              element: <Inbox />,
+            },
+            {
+              path: "/email-detail",
+              element: <EmailDetail />,
+            },
+            {
+              path: "/compose",
+              element: <Compose />,
+            },
+            {
+              path: "/products",
+              element: <Products />,
+            },
+            {
+              path: "/product-detail",
+              element: <ProductDetail />,
+            },
+            {
+              path: "/orders",
+              element: <Orders />,
+            },
+            {
+              path: "/order-detail",
+              element: <OrderDetail />,
+            },
+            {
+              path: "/file-manager",
+              element: <FileManager />,
+            },
+            {
+              path: "/profile",
+              element: <Profile />,
+            },
+            {
+              path: "/pricing",
+              element: <Pricing />,
+            },
+            {
+              path: "/invoice",
+              element: <Invoice />,
+            },
+            {
+              path: "/faq",
+              element: <Faq />,
+            },
+            {
+              path: "/timeline",
+              element: <Timeline />,
+            },
+            {
+              path: "/crud-data-list",
+              element: <CrudDataList />,
+            },
+            {
+              path: "/crud-form",
+              element: <CrudForm />,
+            },
+            {
+              path: "/wizard-layout-1",
+              element: <WizardLayout1 />,
+            },
+            {
+              path: "/wizard-layout-2",
+              element: <WizardLayout2 />,
+            },
+            {
+              path: "/wizard-layout-3",
+              element: <WizardLayout3 />,
+            },
+            {
+              path: "regular-table",
+              element: <RegularTable />,
+            },
+            {
+              path: "tabulator",
+              element: <Tabulator />,
+            },
+            {
+              path: "modal",
+              element: <Modal />,
+            },
+            {
+              path: "slideover",
+              element: <Slideover />,
+            },
+            {
+              path: "notification",
+              element: <Notification />,
+            },
+            {
+              path: "tab",
+              element: <Tab />,
+            },
+            {
+              path: "accordion",
+              element: <Accordion />,
+            },
+            {
+              path: "button",
+              element: <Button />,
+            },
+            {
+              path: "alert",
+              element: <Alert />,
+            },
+            {
+              path: "progress-bar",
+              element: <ProgressBar />,
+            },
+            {
+              path: "tooltip",
+              element: <Tooltip />,
+            },
+            {
+              path: "dropdown",
+              element: <Dropdown />,
+            },
+            {
+              path: "typography",
+              element: <Typography />,
+            },
+            {
+              path: "icon",
+              element: <Icon />,
+            },
+            {
+              path: "loading-icon",
+              element: <LoadingIcon />,
+            },
+            {
+              path: "regular-form",
+              element: <RegularForm />,
+            },
+            {
+              path: "datepicker",
+              element: <Datepicker />,
+            },
+            {
+              path: "tom-select",
+              element: <TomSelect />,
+            },
+            {
+              path: "file-upload",
+              element: <FileUpload />,
+            },
+            {
+              path: "wysiwyg-editor",
+              element: <WysiwygEditor />,
+            },
+            {
+              path: "validation",
+              element: <Validation />,
+            },
+            {
+              path: "chart",
+              element: <Chart />,
+            },
+            {
+              path: "slider",
+              element: <Slider />,
+            },
+            {
+              path: "image-zoom",
+              element: <ImageZoom />,
+            },
+          ],
         },
       ],
     },
     {
       path: "/login",
-      element: <Login />,
+      element: (
+        <GuestRoute>
+          <Login />
+        </GuestRoute>
+      ),
     },
     {
       path: "/register",
-      element: <Register />,
+      element: (
+        <GuestRoute>
+          <Register />
+        </GuestRoute>
+      ),
     },
     {
       path: "/error-page",
+      element: <ErrorPage />,
+    },
+    {
+      path: "*",
       element: <ErrorPage />,
     },
   ];
