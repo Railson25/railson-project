@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   selectColorScheme,
   setColorScheme,
@@ -14,63 +15,74 @@ function Main() {
 
   const setColorSchemeClass = () => {
     const el = document.querySelectorAll("html")[0];
-    el.setAttribute("class", colorScheme);
-    darkMode && el.classList.add("dark");
+
+    el.classList.remove("default", "theme-1", "theme-2");
+
+    el.classList.add(colorScheme);
+
+    if (darkMode) {
+      el.classList.add("dark");
+    } else {
+      el.classList.remove("dark");
+    }
   };
 
-  const switchColorScheme = (colorScheme: ColorSchemes) => {
-    dispatch(setColorScheme(colorScheme));
-    localStorage.setItem("colorScheme", colorScheme);
+  const switchColorScheme = (newColorScheme: ColorSchemes) => {
+    dispatch(setColorScheme(newColorScheme));
+    localStorage.setItem("colorScheme", newColorScheme);
     setColorSchemeClass();
   };
 
-  setColorSchemeClass();
+  useEffect(() => {
+    setColorSchemeClass();
+  }, [colorScheme, darkMode]);
 
   return (
     <>
-      {/* BEGIN: Main Color Switcher */}
-      <div className="fixed bottom-0 right-0 z-50 flex items-center justify-center h-12 px-5 mb-10 border rounded-full shadow-md box mr-52">
+      <div className="fixed bottom-0 right-0 z-50 flex items-center justify-center h-12 px-5 mb-10 bg-white border rounded-full shadow-md box mr-52 dark:bg-darkmode-800">
         <div className="hidden mr-4 sm:block text-slate-600 dark:text-slate-200">
           Color Scheme
         </div>
-        <a
+        <button
           onClick={() => {
             switchColorScheme("default");
           }}
           className={clsx({
-            "block w-8 h-8 cursor-pointer bg-[#00195f] rounded-full border-4 mr-1 hover:border-slate-200":
+            "block w-8 h-8 cursor-pointer bg-sky-400 rounded-full border-4 mr-1 hover:border-slate-200 transition-all":
               true,
-            "border-slate-300 dark:border-darkmode-800/80":
-              colorScheme == "default",
-            "border-white dark:border-darkmode-600": colorScheme != "default",
+            "border-slate-300 dark:border-darkmode-600":
+              colorScheme === "default",
+            "border-white dark:border-darkmode-400": colorScheme !== "default",
           })}
-        ></a>
-        <a
+          title="Baby Blue"
+        ></button>
+        <button
           onClick={() => {
             switchColorScheme("theme-1");
           }}
           className={clsx({
-            "block w-8 h-8 cursor-pointer bg-blue-800 rounded-full border-4 mr-1 hover:border-slate-200":
+            "block w-8 h-8 cursor-pointer bg-pink-400 rounded-full border-4 mr-1 hover:border-slate-200 transition-all":
               true,
-            "border-slate-300 dark:border-darkmode-800/80":
-              colorScheme == "theme-1",
-            "border-white dark:border-darkmode-600": colorScheme != "theme-1",
+            "border-slate-300 dark:border-darkmode-600":
+              colorScheme === "theme-1",
+            "border-white dark:border-darkmode-400": colorScheme !== "theme-1",
           })}
-        ></a>
-        <a
+          title="Baby Pink"
+        ></button>
+        <button
           onClick={() => {
             switchColorScheme("theme-2");
           }}
           className={clsx({
-            "block w-8 h-8 cursor-pointer bg-[#2d3c5a] rounded-full border-4 mr-1 hover:border-slate-200":
+            "block w-8 h-8 cursor-pointer bg-slate-400 rounded-full border-4 mr-1 hover:border-slate-200 transition-all":
               true,
-            "border-slate-300 dark:border-darkmode-800/80":
-              colorScheme == "theme-2",
-            "border-white dark:border-darkmode-600": colorScheme != "theme-2",
+            "border-slate-300 dark:border-darkmode-600":
+              colorScheme === "theme-2",
+            "border-white dark:border-darkmode-400": colorScheme !== "theme-2",
           })}
-        ></a>
+          title="Gray Light"
+        ></button>
       </div>
-      {/* END: Main Color Switcher */}
     </>
   );
 }

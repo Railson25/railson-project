@@ -9,7 +9,6 @@ const colors = twConfig.theme?.colors;
 
 type DefaultColors = typeof tailwindColors;
 
-/** Extended colors */
 interface Colors extends DefaultColors {
   primary: string;
   secondary: string;
@@ -34,7 +33,6 @@ interface Colors extends DefaultColors {
   };
 }
 
-/** Get a value from Tailwind colors by flatten index, if not available the value will be taken from the CSS variable with (--color-) prefix. */
 const getColor = (colorKey: DotNestedKeys<Colors>, opacity: number = 1) => {
   const flattenColors = flatten<
     typeof colors,

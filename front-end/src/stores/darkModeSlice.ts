@@ -5,8 +5,18 @@ interface DarkModeState {
   value: boolean;
 }
 
+const getDarkMode = (): boolean => {
+  try {
+    const darkMode = localStorage.getItem("darkMode");
+    return darkMode === "true";
+  } catch (error) {
+    console.error("Error reading darkMode from localStorage:", error);
+    return false;
+  }
+};
+
 const initialState: DarkModeState = {
-  value: localStorage.getItem("darkMode") === "true",
+  value: getDarkMode(),
 };
 
 export const darkModeSlice = createSlice({
@@ -22,10 +32,6 @@ export const darkModeSlice = createSlice({
 export const { setDarkMode } = darkModeSlice.actions;
 
 export const selectDarkMode = (state: RootState) => {
-  if (localStorage.getItem("darkMode") === null) {
-    localStorage.setItem("darkMode", "false");
-  }
-
   return state.darkMode.value;
 };
 
