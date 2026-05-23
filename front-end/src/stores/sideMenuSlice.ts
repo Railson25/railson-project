@@ -24,13 +24,13 @@ const initialState: SideMenuState = {
     },
     {
       icon: "Calendar",
-      pathname: "/calendar",
-      title: "Calendar",
+      pathname: "/event-scheduler",
+      title: "Event Scheduler",
     },
     {
       icon: "MessageSquare",
-      pathname: "/chat",
-      title: "Chat",
+      pathname: "/messages",
+      title: "Messages",
     },
     {
       icon: "Inbox",

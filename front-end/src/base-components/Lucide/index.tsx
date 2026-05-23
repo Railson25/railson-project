@@ -1,5 +1,5 @@
 import * as lucideIcons from "lucide-react";
-import clsx from "clsx";
+import { cn } from "../../../UI/lib/utils";
 
 export const { createReactComponent, ...icons } = lucideIcons;
 
@@ -16,7 +16,7 @@ function Lucide(props: LucideProps) {
   return (
     <Component
       {...computedProps}
-      className={clsx(["stroke-[1.2]", props.className])}
+      className={cn("stroke-[1.2]", props.className)}
     />
   );
 }

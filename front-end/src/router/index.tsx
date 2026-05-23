@@ -1,8 +1,8 @@
 import { useRoutes } from "react-router-dom";
 import Menu from "@/layouts/SideMenu";
 import HomePage from "@/camadas/home-page/page/home-page";
-import Calendar from "@/camadas/calendar/page/calendar";
-import Chat from "@/camadas/chat/page/chat";
+import EventScheduler from "@/camadas/event-scheduler/page/event-scheduler";
+import Messages from "@/camadas/messages/page/messages";
 import Inbox from "@/camadas/inbox/page/inbox";
 import EmailDetail from "@/camadas/email-detail/page/email-detail";
 import Compose from "@/camadas/compose/page/compose";
@@ -66,12 +66,12 @@ function Router() {
               element: <HomePage />,
             },
             {
-              path: "/calendar",
-              element: <Calendar />,
+              path: "/event-scheduler",
+              element: <EventScheduler />,
             },
             {
-              path: "/chat",
-              element: <Chat />,
+              path: "/messages",
+              element: <Messages />,
             },
             {
               path: "/inbox",

@@ -1,7 +1,7 @@
 export const routeTitles: Record<string, string> = {
   "/": "Home",
-  "/calendar": "Calendar",
-  "/chat": "Chat",
+  "/event-scheduler": "Event Scheduler",
+  "/messages": "Messages",
   "/inbox": "Inbox",
   "/email-detail": "Email Detail",
   "/compose": "Compose",
