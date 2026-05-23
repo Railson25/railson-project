@@ -39,29 +39,13 @@ const initialState: SideMenuState = {
     },
     {
       icon: "CreditCard",
-      title: "E-commerce",
-      subMenu: [
-        {
-          icon: "Activity",
-          pathname: "/products",
-          title: "Products",
-        },
-        {
-          icon: "Activity",
-          pathname: "/product-detail",
-          title: "Product Detail",
-        },
-        {
-          icon: "Activity",
-          pathname: "/orders",
-          title: "Orders",
-        },
-        {
-          icon: "Activity",
-          pathname: "/order-detail",
-          title: "Order Detail",
-        },
-      ],
+      pathname: "/products",
+      title: "Products",
+    },
+    {
+      icon: "ShoppingCart",
+      pathname: "/orders",
+      title: "Orders",
     },
     {
       icon: "HardDrive",

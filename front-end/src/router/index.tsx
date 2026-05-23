@@ -7,9 +7,9 @@ import Emails from "@/camadas/emails/page/emails";
 import EmailDetail from "@/camadas/emails/page/email-detail";
 import EmailCompose from "@/camadas/emails/page/email-compose";
 import Products from "@/camadas/products/page/products";
-import ProductDetail from "@/camadas/product-detail/page/product-detail";
+import ProductDetail from "@/camadas/products/page/product-detail";
 import Orders from "@/camadas/orders/page/orders";
-import OrderDetail from "@/camadas/order-detail/page/order-detail";
+import OrderDetail from "@/camadas/orders/page/order-detail";
 import FileManager from "@/camadas/file-manager/page/file-manager";
 import Profile from "@/camadas/profile/page/profile";
 import Pricing from "@/camadas/pricing/page/pricing";
@@ -90,7 +90,7 @@ function Router() {
               element: <Products />,
             },
             {
-              path: "/product-detail",
+              path: "/products/detail",
               element: <ProductDetail />,
             },
             {
@@ -98,7 +98,7 @@ function Router() {
               element: <Orders />,
             },
             {
-              path: "/order-detail",
+              path: "/orders/detail",
               element: <OrderDetail />,
             },
             {
