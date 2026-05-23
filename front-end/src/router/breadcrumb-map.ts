@@ -1,6 +1,5 @@
 export const routeTitles: Record<string, string> = {
-  "/": "Dashboard",
-  "/dashboard-overview-2": "Dashboard Overview 2",
+  "/": "Home",
   "/calendar": "Calendar",
   "/chat": "Chat",
   "/inbox": "Inbox",

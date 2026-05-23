@@ -19,19 +19,8 @@ const initialState: SideMenuState = {
     "START MENU",
     {
       icon: "Home",
-      title: "Dashboard",
-      subMenu: [
-        {
-          icon: "Activity",
-          pathname: "/",
-          title: "Overview 1",
-        },
-        {
-          icon: "Activity",
-          pathname: "/dashboard-overview-2",
-          title: "Overview 2",
-        },
-      ],
+      pathname: "/",
+      title: "Home",
     },
     {
       icon: "Calendar",

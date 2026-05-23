@@ -1,7 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import Menu from "@/layouts/SideMenu";
 import HomePage from "@/camadas/home-page/page/home-page";
-import DashboardOverview2 from "@/camadas/dashboard-overview-2/page/dashboard-overview-2";
 import Calendar from "@/camadas/calendar/page/calendar";
 import Chat from "@/camadas/chat/page/chat";
 import Inbox from "@/camadas/inbox/page/inbox";
@@ -65,10 +64,6 @@ function Router() {
             {
               path: "/",
               element: <HomePage />,
-            },
-            {
-              path: "/dashboard-overview-2",
-              element: <DashboardOverview2 />,
             },
             {
               path: "/calendar",
