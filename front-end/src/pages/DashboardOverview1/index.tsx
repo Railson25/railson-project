@@ -1,6 +1,6 @@
 import Lucide from "../../base-components/Lucide";
 import Tippy from "../../base-components/Tippy";
-import { Menu, Tab } from "../../base-components/Headless";
+import { Menu, Tab } from "../../../UI";
 import { FormSelect } from "../../base-components/Form";
 import Table from "../../base-components/Table";
 import Button from "../../base-components/Button";
