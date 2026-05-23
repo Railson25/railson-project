@@ -3,12 +3,11 @@ import Table from "@/base-components/Table";
 import { Link } from "react-router-dom";
 import { cn } from "../../../../UI/lib/utils";
 import { ORDER_DETAIL_ROUTE } from "../constants";
+import type { OrderListItem } from "../types";
 import OrderStatusBadge from "./OrderStatusBadge";
 
-type OrderData = (typeof import("@/utils/faker").default)[number];
-
 type OrderTableRowProps = {
-  order: OrderData;
+  order: OrderListItem;
 };
 
 const cellClassName =
