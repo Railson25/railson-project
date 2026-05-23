@@ -3,9 +3,9 @@ import Menu from "@/layouts/SideMenu";
 import HomePage from "@/camadas/home-page/page/home-page";
 import EventScheduler from "@/camadas/event-scheduler/page/event-scheduler";
 import Messages from "@/camadas/messages/page/messages";
-import Inbox from "@/camadas/inbox/page/inbox";
-import EmailDetail from "@/camadas/email-detail/page/email-detail";
-import Compose from "@/camadas/compose/page/compose";
+import Emails from "@/camadas/emails/page/emails";
+import EmailDetail from "@/camadas/emails/page/email-detail";
+import EmailCompose from "@/camadas/emails/page/email-compose";
 import Products from "@/camadas/products/page/products";
 import ProductDetail from "@/camadas/product-detail/page/product-detail";
 import Orders from "@/camadas/orders/page/orders";
@@ -74,16 +74,16 @@ function Router() {
               element: <Messages />,
             },
             {
-              path: "/inbox",
-              element: <Inbox />,
+              path: "/emails",
+              element: <Emails />,
             },
             {
-              path: "/email-detail",
+              path: "/emails/detail",
               element: <EmailDetail />,
             },
             {
-              path: "/compose",
-              element: <Compose />,
+              path: "/emails/compose",
+              element: <EmailCompose />,
             },
             {
               path: "/products",

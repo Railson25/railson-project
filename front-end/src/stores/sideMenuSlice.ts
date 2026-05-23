@@ -34,24 +34,8 @@ const initialState: SideMenuState = {
     },
     {
       icon: "Inbox",
-      title: "Email",
-      subMenu: [
-        {
-          icon: "Activity",
-          pathname: "/inbox",
-          title: "Inbox",
-        },
-        {
-          icon: "Activity",
-          pathname: "/email-detail",
-          title: "Email Detail",
-        },
-        {
-          icon: "Activity",
-          pathname: "/compose",
-          title: "Compose",
-        },
-      ],
+      pathname: "/emails",
+      title: "Emails",
     },
     {
       icon: "CreditCard",
