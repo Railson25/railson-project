@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { selectDarkMode, setDarkMode } from "../../stores/darkModeSlice";
-import { useAppSelector, useAppDispatch } from "../../stores/hooks";
-import { selectColorScheme } from "../../stores/colorSchemeSlice";
+import { selectDarkMode, setDarkMode } from "@/stores/darkModeSlice";
+import { useAppSelector, useAppDispatch } from "@/stores/hooks";
+import { selectColorScheme } from "@/stores/colorSchemeSlice";
 import clsx from "clsx";
 
 function Main() {

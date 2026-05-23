@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import Breadcrumb from "../../base-components/Breadcrumb";
+import Breadcrumb from "@/base-components/Breadcrumb";
 import { routeTitles } from "../../router/breadcrumb-map";
 
 export function TopBarBreadcrumb() {

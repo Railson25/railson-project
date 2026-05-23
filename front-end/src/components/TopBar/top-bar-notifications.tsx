@@ -1,6 +1,6 @@
-import { Popover } from "../../base-components/Headless";
-import Lucide from "../../base-components/Lucide";
-import fakerData from "../../utils/faker";
+import { Popover } from "@/base-components/Headless";
+import Lucide from "@/base-components/Lucide";
+import fakerData from "@/utils/faker";
 import clsx from "clsx";
 import _ from "lodash";
 

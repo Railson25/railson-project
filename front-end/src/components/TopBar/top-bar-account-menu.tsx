@@ -1,9 +1,9 @@
-import { Menu } from "../../base-components/Headless";
-import Lucide from "../../base-components/Lucide";
-import fakerData from "../../utils/faker";
+import { Menu } from "@/base-components/Headless";
+import Lucide from "@/base-components/Lucide";
+import fakerData from "@/utils/faker";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../stores/authStore";
-import { useLogoutMutation } from "../../features/auth/logout/mutations/useLogoutMutation";
+import { useAuthStore } from "@/stores/authStore";
+import { useLogoutMutation } from "@/shared/auth/hooks/useLogoutMutation";
 
 export function TopBarAccountMenu() {
   const navigate = useNavigate();

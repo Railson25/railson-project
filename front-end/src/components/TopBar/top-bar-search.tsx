@@ -1,5 +1,5 @@
-import { FormInput } from "../../base-components/Form";
-import Lucide from "../../base-components/Lucide";
+import { FormInput } from "@/base-components/Form";
+import Lucide from "@/base-components/Lucide";
 
 type Props = {
   onOpen: () => void;

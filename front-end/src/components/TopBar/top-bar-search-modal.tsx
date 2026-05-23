@@ -1,7 +1,7 @@
-import { Dialog } from "../../base-components/Headless";
-import Lucide from "../../base-components/Lucide";
-import { FormInput } from "../../base-components/Form";
-import fakerData from "../../utils/faker";
+import { Dialog } from "@/base-components/Headless";
+import Lucide from "@/base-components/Lucide";
+import { FormInput } from "@/base-components/Form";
+import fakerData from "@/utils/faker";
 import _ from "lodash";
 
 type Props = { open: boolean; onClose: () => void };

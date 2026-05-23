@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Lucide from "../../base-components/Lucide";
+import Lucide from "@/base-components/Lucide";
 import { TopBarBreadcrumb } from "./top-bar-breadcrumb";
 import { TopBarSearch } from "./top-bar-search";
 import { TopBarSearchModal } from "./top-bar-search-modal";

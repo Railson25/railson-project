@@ -1,4 +1,4 @@
-import Lucide from "../../base-components/Lucide";
+import Lucide from "@/base-components/Lucide";
 
 export function TopBarInbox() {
   return (
