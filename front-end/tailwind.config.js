@@ -57,6 +57,10 @@ module.exports = {
       container: {
         center: true,
       },
+      screens: {
+        xs: "464px",
+        "3xl": "1920px",
+      },
       maxWidth: {
         "1/4": "25%",
         "1/2": "50%",

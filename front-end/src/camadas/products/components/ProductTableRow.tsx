@@ -5,20 +5,25 @@ import type { MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "../../../../UI/lib/utils";
 import { PRODUCT_DETAIL_ROUTE } from "../constants";
+import type { ProductListItem } from "../types";
 import ProductImageStack from "./ProductImageStack";
 
-type ProductData = (typeof import("@/utils/faker").default)[number];
-
 type ProductTableRowProps = {
-  product: ProductData;
+  product: ProductListItem;
+  onEditProduct: (product: ProductListItem) => void;
 };
 
 const cellClassName =
   "first:rounded-l-md last:rounded-r-md bg-white border border-r-0 border-l-0 first:border-l last:border-r border-slate-200 dark:bg-darkmode-600 dark:border-darkmode-600 shadow-[20px_3px_20px_#0000000b]";
 
-function ProductTableRow({ product }: ProductTableRowProps) {
+function ProductTableRow({ product, onEditProduct }: ProductTableRowProps) {
   const preventActionNavigation = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
+  };
+
+  const handleEdit = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    onEditProduct(product);
   };
 
   return (
@@ -57,7 +62,7 @@ function ProductTableRow({ product }: ProductTableRowProps) {
         )}
       >
         <div className="flex items-center justify-center">
-          <a className="flex items-center mr-3" href="#" onClick={preventActionNavigation}>
+          <a className="flex items-center mr-3" href="#" onClick={handleEdit}>
             <Lucide icon="CheckSquare" className="w-4 h-4 mr-1" /> Edit
           </a>
           <a
