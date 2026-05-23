@@ -19,76 +19,33 @@ const initialState: SideMenuState = {
     "START MENU",
     {
       icon: "Home",
-      title: "Dashboard",
-      subMenu: [
-        {
-          icon: "Activity",
-          pathname: "/",
-          title: "Overview 1",
-        },
-        {
-          icon: "Activity",
-          pathname: "/dashboard-overview-2",
-          title: "Overview 2",
-        },
-      ],
+      pathname: "/",
+      title: "Home",
     },
     {
       icon: "Calendar",
-      pathname: "/calendar",
-      title: "Calendar",
+      pathname: "/event-scheduler",
+      title: "Event Scheduler",
     },
     {
       icon: "MessageSquare",
-      pathname: "/chat",
-      title: "Chat",
+      pathname: "/messages",
+      title: "Messages",
     },
     {
       icon: "Inbox",
-      title: "Email",
-      subMenu: [
-        {
-          icon: "Activity",
-          pathname: "/inbox",
-          title: "Inbox",
-        },
-        {
-          icon: "Activity",
-          pathname: "/email-detail",
-          title: "Email Detail",
-        },
-        {
-          icon: "Activity",
-          pathname: "/compose",
-          title: "Compose",
-        },
-      ],
+      pathname: "/emails",
+      title: "Emails",
     },
     {
       icon: "CreditCard",
-      title: "E-commerce",
-      subMenu: [
-        {
-          icon: "Activity",
-          pathname: "/products",
-          title: "Products",
-        },
-        {
-          icon: "Activity",
-          pathname: "/product-detail",
-          title: "Product Detail",
-        },
-        {
-          icon: "Activity",
-          pathname: "/orders",
-          title: "Orders",
-        },
-        {
-          icon: "Activity",
-          pathname: "/order-detail",
-          title: "Order Detail",
-        },
-      ],
+      pathname: "/products",
+      title: "Products",
+    },
+    {
+      icon: "ShoppingCart",
+      pathname: "/orders",
+      title: "Orders",
     },
     {
       icon: "HardDrive",

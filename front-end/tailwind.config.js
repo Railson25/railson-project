@@ -1,15 +1,8 @@
 const plugin = require("tailwindcss/plugin");
-const colors = require("tailwindcss/colors");
-const { parseColor } = require("tailwindcss/lib/util/color");
-
-/** Converts HEX color to RGB */
-const toRGB = (value) => {
-  return parseColor(value).color.join(" ");
-};
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./UI/**/*.{js,jsx,ts,tsx}"],
   safelist: [
     {
       pattern: /animate-delay-.+/,
@@ -28,6 +21,21 @@ module.exports = {
         danger: "rgb(var(--color-danger) / <alpha-value>)",
         light: "rgb(var(--color-light) / <alpha-value>)",
         dark: "rgb(var(--color-dark) / <alpha-value>)",
+        text: {
+          primary: "rgb(var(--color-text-primary) / <alpha-value>)",
+          secondary: "rgb(var(--color-text-secondary) / <alpha-value>)",
+          muted: "rgb(var(--color-text-muted) / <alpha-value>)",
+          inverse: "rgb(var(--color-text-inverse) / <alpha-value>)",
+        },
+        background: {
+          primary: "rgb(var(--color-bg-primary) / <alpha-value>)",
+          secondary: "rgb(var(--color-bg-secondary) / <alpha-value>)",
+          muted: "rgb(var(--color-bg-muted) / <alpha-value>)",
+        },
+        border: {
+          primary: "rgb(var(--color-border-primary) / <alpha-value>)",
+          secondary: "rgb(var(--color-border-secondary) / <alpha-value>)",
+        },
         darkmode: {
           50: "rgb(var(--color-darkmode-50) / <alpha-value>)",
           100: "rgb(var(--color-darkmode-100) / <alpha-value>)",
@@ -43,6 +51,8 @@ module.exports = {
       },
       fontFamily: {
         roboto: ["Roboto"],
+        display: ["Inter", "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
       },
       container: {
         center: true,
@@ -70,7 +80,6 @@ module.exports = {
           "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-right breadcrumb__icon'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E\")",
       },
       keyframes: {
-        // Side & simple menu
         "intro-divider": {
           "100%": {
             opacity: 1,
@@ -82,8 +91,6 @@ module.exports = {
             transform: "translateX(0px)",
           },
         },
-
-        // Top menu
         "intro-top-menu": {
           "100%": {
             opacity: 1,
@@ -95,67 +102,168 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/forms"),
-    plugin(function ({ addBase, matchUtilities }) {
+    plugin(function ({ addBase, matchUtilities, addVariant }) {
+      addVariant("theme-1", ".theme-1 &");
+      addVariant("theme-2", ".theme-2 &");
+
       addBase({
-        // Default colors
-        ":root": {
-          "--color-primary": "0 25 95",
-          "--color-secondary": toRGB(colors.slate["200"]),
-          "--color-success": toRGB(colors.teal["600"]),
-          "--color-info": toRGB(colors.cyan["500"]),
-          "--color-warning": toRGB(colors.amber["500"]),
-          "--color-pending": toRGB(colors.orange["600"]),
-          "--color-danger": toRGB(colors.red["700"]),
-          "--color-light": toRGB(colors.slate["100"]),
-          "--color-dark": toRGB(colors.slate["800"]),
+        ":root, .default": {
+          "--color-primary": "125 211 252",
+          "--color-secondary": "56 189 248",
+
+          "--color-success": "16 185 129",
+          "--color-info": "14 165 233",
+          "--color-warning": "245 158 11",
+          "--color-pending": "249 115 22",
+          "--color-danger": "239 68 68",
+
+          "--color-light": "248 250 252",
+          "--color-dark": "30 41 59",
+
+          "--color-text-primary": "15 23 42",
+          "--color-text-secondary": "71 85 105",
+          "--color-text-muted": "100 116 139",
+          "--color-text-inverse": "248 250 252",
+
+          "--color-bg-primary": "255 255 255",
+          "--color-bg-secondary": "248 250 252",
+          "--color-bg-muted": "241 245 249",
+
+          "--color-border-primary": "226 232 240",
+          "--color-border-secondary": "203 213 225",
         },
-        // Default dark-mode colors
+
         ".dark": {
-          "--color-primary": "44 85 197",
-          "--color-darkmode-50": "87 103 132",
-          "--color-darkmode-100": "74 90 121",
-          "--color-darkmode-200": "65 81 114",
-          "--color-darkmode-300": "53 69 103",
-          "--color-darkmode-400": "48 61 93",
-          "--color-darkmode-500": "41 53 82",
-          "--color-darkmode-600": "40 51 78",
-          "--color-darkmode-700": "35 45 69",
-          "--color-darkmode-800": "27 37 59",
-          "--color-darkmode-900": "15 23 42",
+          "--color-primary": "56 189 248",
+          "--color-darkmode-50": "71 85 105",
+          "--color-darkmode-100": "51 65 85",
+          "--color-darkmode-200": "30 41 59",
+          "--color-darkmode-300": "15 23 42",
+          "--color-darkmode-400": "12 20 38",
+          "--color-darkmode-500": "8 16 32",
+          "--color-darkmode-600": "6 12 26",
+          "--color-darkmode-700": "4 8 20",
+          "--color-darkmode-800": "2 4 14",
+          "--color-darkmode-900": "0 0 8",
+
+          "--color-text-primary": "248 250 252",
+          "--color-text-secondary": "203 213 225",
+          "--color-text-muted": "148 163 184",
+          "--color-text-inverse": "15 23 42",
+
+          "--color-bg-primary": "15 23 42",
+          "--color-bg-secondary": "30 41 59",
+          "--color-bg-muted": "51 65 85",
+
+          "--color-border-primary": "51 65 85",
+          "--color-border-secondary": "71 85 105",
         },
-        // Theme 1 colors
+
         ".theme-1": {
-          "--color-primary": toRGB(colors.blue["800"]),
-          "--color-secondary": toRGB(colors.slate["200"]),
-          "--color-success": toRGB(colors.teal["600"]),
-          "--color-info": toRGB(colors.cyan["500"]),
-          "--color-warning": toRGB(colors.amber["500"]),
-          "--color-pending": toRGB(colors.orange["500"]),
-          "--color-danger": toRGB(colors.red["700"]),
-          "--color-light": toRGB(colors.slate["100"]),
-          "--color-dark": toRGB(colors.slate["800"]),
-          "&.dark": {
-            "--color-primary": toRGB(colors.blue["800"]),
-          },
+          "--color-primary": "244 114 182",
+          "--color-secondary": "236 72 153",
+
+          "--color-success": "16 185 129",
+          "--color-info": "168 85 247",
+          "--color-warning": "251 191 36",
+          "--color-pending": "249 115 22",
+          "--color-danger": "244 63 94",
+
+          "--color-light": "253 242 248",
+          "--color-dark": "190 24 93",
+
+          "--color-text-primary": "76 29 50",
+          "--color-text-secondary": "153 71 103",
+          "--color-text-muted": "190 118 148",
+          "--color-text-inverse": "253 242 248",
+
+          "--color-bg-primary": "255 255 255",
+          "--color-bg-secondary": "253 242 248",
+          "--color-bg-muted": "252 231 243",
+
+          "--color-border-primary": "251 207 232",
+          "--color-border-secondary": "249 168 212",
         },
-        // Theme 2 colors
+
+        ".theme-1.dark": {
+          "--color-primary": "236 72 153",
+          "--color-darkmode-50": "76 29 50",
+          "--color-darkmode-100": "86 33 57",
+          "--color-darkmode-200": "96 37 64",
+          "--color-darkmode-300": "106 41 71",
+          "--color-darkmode-400": "116 45 78",
+          "--color-darkmode-500": "126 49 85",
+          "--color-darkmode-600": "136 53 92",
+          "--color-darkmode-700": "146 57 99",
+          "--color-darkmode-800": "156 61 106",
+          "--color-darkmode-900": "166 65 113",
+
+          "--color-text-primary": "253 242 248",
+          "--color-text-secondary": "251 207 232",
+          "--color-text-muted": "249 168 212",
+          "--color-text-inverse": "76 29 50",
+
+          "--color-bg-primary": "76 29 50",
+          "--color-bg-secondary": "96 37 64",
+          "--color-bg-muted": "116 45 78",
+
+          "--color-border-primary": "116 45 78",
+          "--color-border-secondary": "136 53 92",
+        },
+
         ".theme-2": {
-          "--color-primary": "45 60 90",
-          "--color-secondary": toRGB(colors.slate["200"]),
-          "--color-success": toRGB(colors.teal["600"]),
-          "--color-info": toRGB(colors.cyan["500"]),
-          "--color-warning": toRGB(colors.amber["500"]),
-          "--color-pending": toRGB(colors.orange["500"]),
-          "--color-danger": toRGB(colors.red["700"]),
-          "--color-light": toRGB(colors.slate["100"]),
-          "--color-dark": toRGB(colors.slate["800"]),
-          "&.dark": {
-            "--color-primary": "44 85 197",
-          },
+          "--color-primary": "148 163 184",
+          "--color-secondary": "100 116 139",
+
+          "--color-success": "16 185 129",
+          "--color-info": "100 116 139",
+          "--color-warning": "180 83 9",
+          "--color-pending": "154 52 18",
+          "--color-danger": "185 28 28",
+
+          "--color-light": "248 250 252",
+          "--color-dark": "51 65 85",
+
+          "--color-text-primary": "15 23 42",
+          "--color-text-secondary": "71 85 105",
+          "--color-text-muted": "100 116 139",
+          "--color-text-inverse": "248 250 252",
+
+          "--color-bg-primary": "255 255 255",
+          "--color-bg-secondary": "248 250 252",
+          "--color-bg-muted": "241 245 249",
+
+          "--color-border-primary": "226 232 240",
+          "--color-border-secondary": "203 213 225",
+        },
+
+        ".theme-2.dark": {
+          "--color-primary": "100 116 139",
+          "--color-darkmode-50": "30 41 59",
+          "--color-darkmode-100": "33 44 62",
+          "--color-darkmode-200": "36 47 65",
+          "--color-darkmode-300": "39 50 68",
+          "--color-darkmode-400": "42 53 71",
+          "--color-darkmode-500": "45 56 74",
+          "--color-darkmode-600": "48 59 77",
+          "--color-darkmode-700": "51 62 80",
+          "--color-darkmode-800": "54 65 83",
+          "--color-darkmode-900": "57 68 86",
+
+          "--color-text-primary": "248 250 252",
+          "--color-text-secondary": "203 213 225",
+          "--color-text-muted": "148 163 184",
+          "--color-text-inverse": "15 23 42",
+
+          "--color-bg-primary": "30 41 59",
+          "--color-bg-secondary": "45 56 74",
+          "--color-bg-muted": "60 71 89",
+
+          "--color-border-primary": "51 62 80",
+          "--color-border-secondary": "66 77 95",
         },
       });
 
-      // Animation delay utilities
       matchUtilities(
         {
           "animate-delay": (value) => ({
@@ -173,7 +281,6 @@ module.exports = {
         }
       );
 
-      // Animation fill mode utilities
       matchUtilities(
         {
           "animate-fill-mode": (value) => ({
@@ -194,6 +301,11 @@ module.exports = {
   variants: {
     extend: {
       boxShadow: ["dark"],
+      backgroundImage: ["theme-1", "theme-2"],
+      gradientColorStops: ["theme-1", "theme-2"],
+      textColor: ["theme-1", "theme-2"],
+      backgroundColor: ["theme-1", "theme-2"],
+      borderColor: ["theme-1", "theme-2"],
     },
   },
 };

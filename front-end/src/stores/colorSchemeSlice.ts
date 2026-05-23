@@ -3,22 +3,26 @@ import { RootState } from "./store";
 
 const colorSchemes = ["default", "theme-1", "theme-2"] as const;
 
-export type ColorSchemes = typeof colorSchemes[number];
+export type ColorSchemes = (typeof colorSchemes)[number];
 
 interface ColorSchemeState {
   value: ColorSchemes;
 }
 
-const getColorScheme = () => {
-  const colorScheme = localStorage.getItem("colorScheme");
-  return colorSchemes.filter((item, key) => {
-    return item === colorScheme;
-  })[0];
+const getColorScheme = (): ColorSchemes => {
+  try {
+    const colorScheme = localStorage.getItem("colorScheme");
+    if (colorScheme && colorSchemes.includes(colorScheme as ColorSchemes)) {
+      return colorScheme as ColorSchemes;
+    }
+  } catch (error) {
+    console.error("Error reading colorScheme from localStorage:", error);
+  }
+  return "default";
 };
 
 const initialState: ColorSchemeState = {
-  value:
-    localStorage.getItem("colorScheme") === null ? "default" : getColorScheme(),
+  value: getColorScheme(),
 };
 
 export const colorSchemeSlice = createSlice({
@@ -34,10 +38,12 @@ export const colorSchemeSlice = createSlice({
 export const { setColorScheme } = colorSchemeSlice.actions;
 
 export const selectColorScheme = (state: RootState) => {
-  if (localStorage.getItem("colorScheme") === null) {
-    localStorage.setItem("colorScheme", "default");
+  if (
+    !state.colorScheme.value ||
+    !colorSchemes.includes(state.colorScheme.value)
+  ) {
+    return "default";
   }
-
   return state.colorScheme.value;
 };
 

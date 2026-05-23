@@ -24,6 +24,8 @@
     "@hookform/resolvers": "^2.9.10",
     "@left4code/tw-starter": "^3.1.36",
     "@reduxjs/toolkit": "^1.8.5",
+    "@tanstack/react-query": "^5.90.10",
+    "axios": "^1.13.2",
     "chart.js": "^3.9.1",
     "dayjs": "^1.11.5",
     "dropzone": "^6.0.0-beta.2",
@@ -47,7 +49,8 @@
     "tom-select": "^2.2.0",
     "xlsx": "^0.18.5",
     "yup": "^0.32.11",
-    "zoom-vanilla.js": "^2.0.6"
+    "zoom-vanilla.js": "^2.0.6",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
@@ -58,6 +61,7 @@
     "@types/lodash": "^4.14.184",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-router-dom": "^5.3.3",
     "@types/react-transition-group": "^4.4.5",
     "@types/tabulator-tables": "^5.32.1",
     "@types/toastify-js": "^1.11.1",
@@ -73,5 +77,6 @@
     "tailwindcss": "^3.1.8",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
-  }
+  },
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
 }

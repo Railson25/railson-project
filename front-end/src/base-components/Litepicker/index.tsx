@@ -1,7 +1,7 @@
 import { createRef, useEffect, useRef } from "react";
 import { setValue, init, reInit } from "./litepicker";
 import LitepickerJs from "litepicker";
-import { FormInput } from "../../base-components/Form";
+import { FormInput } from "@/base-components/Form";
 import { ILPConfiguration } from "litepicker/dist/types/interfaces";
 
 export interface LitepickerElement extends HTMLInputElement {
